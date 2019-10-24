@@ -40,7 +40,7 @@ impl FieldMember {
         let mut parsed_attribs = Vec::new();
         for attrib in &field.attrs {
             if attrib.path.segments[0].ident.to_string() == "approx" {
-                let parsed_attrib = syn::parse2::<MemberAttribute>(attrib.tts.clone())?;
+                let parsed_attrib = syn::parse2::<MemberAttribute>(attrib.tokens.clone())?;
                 parsed_attribs.push(parsed_attrib);
             }
         }

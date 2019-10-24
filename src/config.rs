@@ -20,7 +20,7 @@ pub fn parse_attributes(attributes: &Vec<syn::Attribute>) -> Result<DeriveConfig
         default_epsilon: None,
     };
     for attrib in attributes {
-        let inner_tts = attrib.tts.clone().into();
+        let inner_tts = attrib.tokens.clone().into();
         let config_attrib: ConfigAttrib = syn::parse2(inner_tts)?;
         match config_attrib {
             ConfigAttrib::EpsilonTy(ty) => {
